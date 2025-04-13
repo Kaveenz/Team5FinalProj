@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "650909886318",
+    "project_id": "drivr-481",
+    "storage_bucket": "drivr-481.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:650909886318:android:3db65a3779119c9035c37f",
+        "android_client_info": {
+          "package_name": "com.example.drivr"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByoC9_6OMQ4t8BysrGcK5V32Uc6ur-Us0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,80 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#BB97FB"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose Your Profile Picture"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Profile Picture Options -->
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="3"
+            android:rowCount="2"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp">
+
+            <!-- Placeholder for Profile Pictures -->
+            <ImageView
+                android:id="@+id/pfp1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="8dp"
+                android:src="@drawable/pfp1"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:id="@+id/pfp2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="8dp"
+                android:src="@drawable/pfp2"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:id="@+id/pfp3"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="8dp"
+                android:src="@drawable/pfp3"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:id="@+id/pfp4"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="8dp"
+                android:src="@drawable/pfp4"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:id="@+id/pfp5"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="8dp"
+                android:src="@drawable/pfp5"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:id="@+id/pfp6"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="8dp"
+                android:src="@drawable/pfp6"
+                android:scaleType="centerCrop" />
+        </GridLayout>
+    </LinearLayout>
+</ScrollView>
