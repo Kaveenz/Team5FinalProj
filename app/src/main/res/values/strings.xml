@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Drivr</string>
+
+    <string-array name="music_choices">
+        <item>Song 1</item>
+        <item>Song 2</item>
+        <item>Song 3</item>
+        <item>Song 4</item>
+        <item>Song 5</item>
+    </string-array>
+
 </resources>
