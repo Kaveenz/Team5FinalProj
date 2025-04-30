@@ -29,6 +29,8 @@
         <activity
             android:name=".UserProfileActivity"
             android:exported="true" /> <!-- Search Activity -->
+        <activity android:name=".ChatActivity" android:exported="true" />
+
         <activity
             android:name=".SearchActivity"
             android:exported="true" /> <!-- Profile Activity -->

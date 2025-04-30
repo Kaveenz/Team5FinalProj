@@ -1,73 +1,45 @@
 package com.example.drivr
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.firestore.FirebaseFirestore
+import com.bumptech.glide.Glide
 
 class UserProfileActivity : AppCompatActivity() {
 
-    private lateinit var db: FirebaseFirestore
-    private lateinit var userProfileImage: ImageView
+    private lateinit var messageButton: Button
+    private lateinit var usernameText: TextView
+    private lateinit var userInfoText: TextView
+    private lateinit var profileImage: ImageView
+    private lateinit var uid: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_profile)
 
-        // Initialize Firestore
-        db = FirebaseFirestore.getInstance()
+        messageButton = findViewById(R.id.messageButton)
+        usernameText = findViewById(R.id.userProfileTitle)
+        userInfoText = findViewById(R.id.userInfoText)
+        profileImage = findViewById(R.id.userProfileImage)
 
-        // UI Elements
-        val userInfoText = findViewById<TextView>(R.id.userInfoText)
-        userProfileImage = findViewById(R.id.userProfileImage)
+        // Get data from intent
+        val username = intent.getStringExtra("username") ?: "User"
+        uid = intent.getStringExtra("uid") ?: ""
+        val profilePicName = intent.getStringExtra("profilePicture") ?: "pfp1"
+        val userInfo = intent.getStringExtra("userInfo") ?: "User Info will be displayed here"
 
-        // Get the username from the intent
-        val username = intent.getStringExtra("username")
+        usernameText.text = username
+        userInfoText.text = userInfo
+        val resourceId = resources.getIdentifier(profilePicName, "drawable", packageName)
+        Glide.with(this).load(resourceId).into(profileImage)
 
-        if (username != null) {
-            // Fetch user profile from Firestore
-            db.collection("Users")
-                .whereEqualTo("username", username)
-                .get()
-                .addOnSuccessListener { documents ->
-                    if (!documents.isEmpty) {
-                        val doc = documents.first()
-                        val realName = doc.getString("realName") ?: "N/A"
-                        val age = doc.getLong("age")?.toString() ?: "N/A"
-                        val sex = doc.getString("sex") ?: "N/A"
-                        val hobbies = doc.getString("hobbies") ?: "N/A"
-                        val placeOfWork = doc.getString("placeOfWork") ?: "N/A"
-                        val carType = doc.getString("carType") ?: "N/A"
-                        val pfpName = doc.getString("profilePicture") ?: "pfp1"
-
-                        val userInfo = """
-                            Real Name: $realName
-                            Age: $age
-                            Sex: $sex
-                            Hobbies: $hobbies
-                            Place of Work: $placeOfWork
-                            Car Type: $carType
-                        """.trimIndent()
-
-                        userInfoText.text = userInfo
-                        setProfileImage(pfpName)
-                    } else {
-                        userInfoText.text = "User not found."
-                    }
-                }
-                .addOnFailureListener { e ->
-                    Toast.makeText(this, "Error fetching user: ${e.message}", Toast.LENGTH_SHORT).show()
-                }
-        } else {
-            userInfoText.text = "No username provided."
+        messageButton.setOnClickListener {
+            val intent = Intent(this, ChatActivity::class.java)
+            intent.putExtra("receiverId", uid)
+            startActivity(intent)
         }
-    }
-
-    // Set Profile Image
-    private fun setProfileImage(pfpName: String) {
-        val resourceId = resources.getIdentifier(pfpName, "drawable", packageName)
-        userProfileImage.setImageResource(resourceId)
     }
 }
