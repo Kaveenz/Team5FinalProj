@@ -32,6 +32,7 @@ class ProfileActivity : AppCompatActivity() {
         musicSpinner = findViewById(R.id.musicSpinner)
         val saveButton = findViewById<Button>(R.id.saveProfileButton)
         val changePfpButton = findViewById<Button>(R.id.changePfpButton)
+        val homeButton = findViewById<Button>(R.id.homeButton)
 
         val userId = auth.currentUser?.uid
 
@@ -67,6 +68,11 @@ class ProfileActivity : AppCompatActivity() {
         changePfpButton.setOnClickListener {
             val intent = Intent(this, ProfilePictureSelectionActivity::class.java)
             startActivityForResult(intent, 1001)
+        }
+
+        homeButton.setOnClickListener {//just added a lil button to bring you back to the hub
+            val intent = Intent(this, HubActivity::class.java)
+            startActivity(intent)
         }
 
         saveButton.setOnClickListener {
