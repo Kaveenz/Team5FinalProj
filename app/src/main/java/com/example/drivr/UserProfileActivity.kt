@@ -39,6 +39,7 @@ class UserProfileActivity : AppCompatActivity() {
         messageButton.setOnClickListener {
             val intent = Intent(this, ChatActivity::class.java)
             intent.putExtra("receiverId", uid)
+            intent.putExtra("username", username)
             startActivity(intent)
         }
     }
