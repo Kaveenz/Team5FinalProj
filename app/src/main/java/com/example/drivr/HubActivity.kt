@@ -36,5 +36,12 @@ class HubActivity : AppCompatActivity() {
         settingsButton.setOnClickListener {
             // Future settings activity or feature
         }
+
+        val viewFriendRequestsButton = findViewById<Button>(R.id.viewFriendRequestsButton)
+        viewFriendRequestsButton.setOnClickListener {
+            val intent = Intent(this, FriendRequestsActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }
