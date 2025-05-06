@@ -19,6 +19,10 @@
         <activity
             android:name=".MapActivity"
             android:exported="true" />
+
+        <activity android:name=".FriendRequestsActivity" />
+        <activity android:name=".NotificationsActivity" android:exported="true" />
+
         <!-- Google Maps API Key -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
