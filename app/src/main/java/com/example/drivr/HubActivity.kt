@@ -43,5 +43,11 @@ class HubActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val chatHistButton = findViewById<Button>(R.id.chatsHistButton)
+        chatHistButton.setOnClickListener{
+            val intent = Intent(this, ChatHistory::class.java)
+            startActivity(intent)
+        }
+
     }
 }
