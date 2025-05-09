@@ -12,6 +12,7 @@
         android:id="@+id/createAccountTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#89000000"
         android:text="Create Your Account"
         android:textSize="24sp"
         android:textStyle="bold"

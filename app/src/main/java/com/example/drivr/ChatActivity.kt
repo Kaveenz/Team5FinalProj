@@ -1,9 +1,11 @@
 package com.example.drivr
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ListView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -14,6 +16,8 @@ class ChatActivity : AppCompatActivity() {
     private lateinit var messageInput: EditText
     private lateinit var sendButton: Button
     private lateinit var adapter: ChatAdapter
+    private lateinit var hubButton: Button
+    private lateinit var usernameDisplay: TextView
 
     private lateinit var db: FirebaseFirestore
     private lateinit var auth: FirebaseAuth
@@ -28,6 +32,8 @@ class ChatActivity : AppCompatActivity() {
         listView = findViewById(R.id.messageList)
         messageInput = findViewById(R.id.messageInput)
         sendButton = findViewById(R.id.sendButton)
+        usernameDisplay = findViewById(R.id.usernameDisplay)
+
 
         db = FirebaseFirestore.getInstance()
         auth = FirebaseAuth.getInstance()
@@ -36,6 +42,8 @@ class ChatActivity : AppCompatActivity() {
         listView.adapter = adapter
 
         receiverId = intent.getStringExtra("receiverId") ?: ""
+        usernameDisplay.text = intent.getStringExtra("username") ?: "Unknown"
+        hubButton = findViewById(R.id.hubButten)
 
         sendButton.setOnClickListener {
             val messageText = messageInput.text.toString().trim()
@@ -44,6 +52,12 @@ class ChatActivity : AppCompatActivity() {
                 messageInput.text.clear()
             }
         }
+
+        hubButton.setOnClickListener {
+            val intent = Intent(this, HubActivity::class.java)
+            startActivity(intent)
+        }
+
 
         listenForMessages()
     }

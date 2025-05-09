@@ -21,13 +21,15 @@
         android:theme="@style/Theme.Drivr"
         tools:targetApi="31">
         <activity
+            android:name=".ChatHistory"
+            android:exported="false" />
+        <activity
             android:name=".MapActivity"
             android:exported="true" />
-
         <activity android:name=".FriendRequestsActivity" />
-        <activity android:name=".NotificationsActivity" android:exported="true" />
-
-        <!-- Google Maps API Key -->
+        <activity
+            android:name=".NotificationsActivity"
+            android:exported="true" /> <!-- Google Maps API Key -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyArg9Bz4DagyhgY4ckaiufT8mm6crsk7uQ" /> <!-- Profile Picture Selection Activity -->
@@ -37,8 +39,9 @@
         <activity
             android:name=".UserProfileActivity"
             android:exported="true" /> <!-- Search Activity -->
-        <activity android:name=".ChatActivity" android:exported="true" />
-
+        <activity
+            android:name=".ChatActivity"
+            android:exported="true" />
         <activity
             android:name=".SearchActivity"
             android:exported="true" /> <!-- Profile Activity -->
